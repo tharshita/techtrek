@@ -26,6 +26,7 @@ const Carts = () => {
                     <CartItem
                         key={order.product_id}
                         product_id={order.product_id}
+                        title={order.title}
                         order_id={order.order_id}
                         product_qty={order.product_qty}
                         total_price={order.total_price}
