@@ -13,13 +13,17 @@ function ProductItem(props) {
 
     const addToCart = async () => {
         //TODO get customer id from local host
-        const item = { 
-            customer_id: 1,
-            price: price,
-            qty: quantity,
-            product_id: product_id
-            };
-        axios.post('http://dbstechtrek.duckdns.org/addtocart.php', item)
+        let formData = new FormData();
+        formData.append('customer_id', 1)
+        formData.append('price', price)
+        formData.append('qty', quantity)
+        formData.append('product_id', product_id)
+        const config = {
+            headers: {
+                'content-type': 'application/form-data'
+            }
+        }
+        axios.post('http://dbstechtrek.duckdns.org/addtocart.php', formData, config)
         .then(response => console.log(response));
     };
 
