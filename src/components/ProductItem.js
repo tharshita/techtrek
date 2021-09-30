@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Card, Button, InputGroup, FormControl } from 'react-bootstrap';
+import axios from 'axios';
 
 function ProductItem(props) {
     const { product_id, category_id, description, image, price, qty, title } = props;
+    const [quantity, setQuantity] = useState(1);
+
+    const onChangeHandler = (event) => {
+        const value = event.target.value;
+        setQuantity(value);
+      }
+
+    const addToCart = async () => {
+        //TODO get customer id from local host
+        const item = { 
+            customer_id: 1,
+            price: price,
+            qty: quantity,
+            product_id: product_id
+            };
+        axios.post('http://dbstechtrek.duckdns.org/addtocart.php', item)
+        .then(response => console.log(response));
+    };
 
     return (
         <Col>
@@ -21,10 +40,10 @@ function ProductItem(props) {
                 <>
                 <InputGroup size="sm" className="mb-3">
                     <InputGroup.Text id="quantity">Quantity</InputGroup.Text>
-                    <FormControl aria-label="quantity" type="number" min="1" max={qty} defaultValue="1"/>
+                    <FormControl name="quantity" type="number" min="1" max={qty} defaultValue="1" onChange={onChangeHandler}/>
                 </InputGroup>
                 </>
-                <Button variant="outline-dark" type="submit">
+                <Button variant="outline-dark" type="submit" onClick={addToCart}>
                     Add to Cart
                 </Button>
             </Card>
