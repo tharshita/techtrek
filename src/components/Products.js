@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
 
-function Login() {
+function Products() {
 
     return (
         <Container>
@@ -19,4 +19,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Products;
