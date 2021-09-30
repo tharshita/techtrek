@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, useHistory} from 'react-router-dom';
 import { Col, Row, Form, Button } from 'react-bootstrap';
 
-const Confirm = () => {
+const Checkout = () => {
 
     // const location = useLocation();
 
@@ -40,4 +40,4 @@ const Confirm = () => {
 
 }
 
-export default Confirm;
+export default Checkout;
