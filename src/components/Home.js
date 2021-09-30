@@ -7,7 +7,7 @@ function Home() {
     return (
         <Container>
             <h1> Home </h1>
-            <Button variant="outline-dark">View Cart</Button>
+            <Button variant="outline-primary">View Cart</Button>
             <Products></Products>
         </Container>
     );

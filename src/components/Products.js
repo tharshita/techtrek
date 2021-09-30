@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, CardGroup } from 'react-bootstrap';
+import { Container, Row, } from 'react-bootstrap';
 import axios from 'axios';
 import ProductItem from './ProductItem';
 
@@ -8,15 +8,14 @@ function Products() {
 
     useEffect(() => {
         fetchProducts()
-      }, []);
+    }, []);
 
     const fetchProducts = async () => {
         const result = await axios.get(
           'http://dbstechtrek.duckdns.org/getproducts.php',
         );
-        console.log(result.data)
         setProducts(result.data)
-      };
+    };
     
 
     return (
