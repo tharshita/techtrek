@@ -22,6 +22,7 @@ const Carts = () => {
     return (
         <Container>
             <Row xs={1} md={4} className="g-4">
+                <div>
                 {orders.map(order =>
                     <CartItem
                         key={order.product_id}
@@ -32,6 +33,7 @@ const Carts = () => {
                         total_price={order.total_price}
                     />)
                 }
+                </div>
             </Row>
         </Container>
     );
