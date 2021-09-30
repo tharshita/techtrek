@@ -2,6 +2,7 @@
 
 require_once 'common.php';
 require_once 'ConnectionManager.php';
+require_once 'User.php';
 
 class UserDAO {
 
@@ -16,7 +17,7 @@ class UserDAO {
 
         
         $sql = "SELECT
-                    password
+                    password, id
                 FROM
                     customer
                 WHERE
@@ -28,21 +29,33 @@ class UserDAO {
 
         
         $password = null;
-
+        
+        $list = array();
+        $return_crev = null;
 
         
         if( $stmt->execute() ) {
 
-            // Step 4 - Retrieve Query Results
-            if( $row = $stmt->fetch() ) {
-                $password = $row['password'];
+            while($row = $stmt->fetch()) {
+                $return_crev = 
+                    new User(
+                        $row['password'],
+                        $row['id']);
+
+                array_push($list, $return_crev);
             }
+
+            // Step 4 - Retrieve Query Results
+            // if( $row = $stmt->fetch() ) {
+            //     $password = $row['password'];
+            // }
         }
 
-        
 
+
+        
         // Step 5 - Return
-        return $password;
+        return $list;
     }
 
 
