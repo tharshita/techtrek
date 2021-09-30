@@ -24,7 +24,7 @@ function ProductItem(props) {
             }
         }
         axios.post('http://dbstechtrek.duckdns.org/addtocart.php', formData, config)
-        .then(response => console.log(response));
+        .then(response => alert(response.data));
     };
 
     return (
