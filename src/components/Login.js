@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Card, Button } from 'react-bootstrap';
-import Home from './Home';
 
 function Login() {
 
@@ -12,7 +11,7 @@ function Login() {
                     Username
                     Password
                 </Card.Text>
-                <Button variant="primary" onClick={Home}>
+                <Button variant="primary">
                     Login
                 </Button>
             </Card>
