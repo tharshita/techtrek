@@ -17,11 +17,12 @@ function Login(props) {
     }
     const listenUser = (event) => {
         event.preventDefault();
-        setUser(event.target.username)
+        setUser(event.target.value)
         }
 
     const auth = async () => {
     let formData = new FormData();
+    console.log(user, pw)
     formData.append('username', user)
     formData.append('password', pw)
     const config = {
