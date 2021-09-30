@@ -2,6 +2,8 @@
 // session_start();
 require_once 'include/common.php';
 require_once 'include/UserDAO.php';
+require_once 'include/User.php';
+
 
 // var_dump($_POST);
 
@@ -22,13 +24,17 @@ if (isset($_POST['username'])&& isset($_POST['password']))
     
         //retrieve username and password from database
         $user = $dao->retrieve($username);
+        // var_dump($user);
+        
         
         // check if user exist
         if ($user != null)
         {
-            $password = $user;
-            var_dump($password);
-            var_dump($pass);
+            
+            // $components = $comp->get_component();
+            $password = $user[0]->get_password();
+            // var_dump($password);
+            // var_dump($pass);
 
             // Authentication
             if ($pass == $password)
@@ -39,8 +45,11 @@ if (isset($_POST['username'])&& isset($_POST['password']))
                 // $msg = "in";
                 // echo $msg;
 
+                $id = $user[0]->get_id();
+
                 array_push($output,array(
-                    'username' => $name
+                    'username' => $username,
+                    'id' => $id
                 ));
 
                 // header("Location: home.php");
