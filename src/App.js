@@ -10,7 +10,8 @@ function App() {
           Techtrek commerce
         </p>
       </header>
-      <Home></Home>
+      <Login/>
+
     </div>
   );
 }
