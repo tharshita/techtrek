@@ -1,29 +1,35 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useEffect, useState } from 'react';
+import { Container, Card, Button } from 'react-bootstrap';
+import axios from 'axios';
 
-const Login = () => {
-    const { login, handleSubmit } = useForm();
+
+function Login(props) {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetchUsers()
+      }, []);
+
+      const fetchUsers = async () => {
+        const result = await axios.get(
+          'link',
+        );
+        console.log(result.data)
+        setUsers(result.data)
+      };
+
     return (
-        <form >
-            <div className = 'form-control'>
-             <label>Username: </label>
-             <input
-            type='text'
-            placeholder='Username' ref = {login}
-            />
-            </div>
+      <Container>
+          <div>
+          <label>Username</label>
+          <input type= 'text' placeholder = 'username'></input></div>
+          <div>
+          <label>Password</label>
+          <input type= 'text' placeholder = 'password'></input></div>
+          <Button>Login</Button>
+      </Container>
+    );
+  }
+   
 
-            <div className = 'form-control'>
-            <label>Password: </label>
-            <input
-            type='text'
-            placeholder='Password' ref = {login}
-            />
-            </div>
-
-            <input type='submit' value='Login' className='btn btn-block' />
-            </form>
-    )
-}
-
-export default Login
+export default Login;
