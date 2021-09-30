@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Container, Row } from 'react-bootstrap';
-import CartItem from'./CartItem';
+import CartItem from './CartItem'
 
 const Carts = () => {
 
@@ -12,8 +12,8 @@ const Carts = () => {
       }, []);
 
     const fetchOrders = async () => {
-        const result = await axios.get(
-          'http://dbstechtrek.duckdns.org/getorderitems.php',
+        const result = await axios.post(
+          'http://dbstechtrek.duckdns.org/getorderitems.php?customer_id=1'
         );
         console.log(result.data)
         setOrder(result.data)

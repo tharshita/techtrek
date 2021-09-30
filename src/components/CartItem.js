@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Col, Card, Button } from 'react-bootstrap';
 
 const CartItem = (props) => {
 
@@ -12,6 +12,7 @@ const CartItem = (props) => {
                 <Card.Subtitle className="mb-2 text-muted">Order ID: {order_id}</Card.Subtitle>
                 <Card.Subtitle className="mb-2 text-muted">Product Quantity: {product_qty}</Card.Subtitle>
                 <Card.Subtitle className="mb-2 text-muted">Total Price: ${total_price}</Card.Subtitle>
+                <Button variant="danger">Remove Item</Button>
             </Card>
         </Col>
     );
