@@ -11,7 +11,7 @@ function Login() {
                     Username
                     Password
                 </Card.Text>
-                <Button variant="primary">
+                <Button variant="outline-dark">
                     Login
                 </Button>
             </Card>

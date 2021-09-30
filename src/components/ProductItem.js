@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Card, Button } from 'react-bootstrap';
+import { Col, Card, Button, InputGroup, FormControl } from 'react-bootstrap';
 
 function ProductItem(props) {
     const { product_id, category_id, description, image, price, qty, title } = props;
@@ -13,12 +13,18 @@ function ProductItem(props) {
                     {description}
                 </Card.Text>
                 <Card.Subtitle>
-                    Price: {price}
+                    <b> Price: </b> {price}
                 </Card.Subtitle>
                 <Card.Subtitle>
-                    Available Qty: {qty}
+                    <b> Quantity: </b> {qty}
                 </Card.Subtitle>
-                <Button variant="primary">
+                <>
+                <InputGroup size="sm" className="mb-3">
+                    <InputGroup.Text id="quantity">Quantity</InputGroup.Text>
+                    <FormControl aria-label="quantity" type="number" min="1" max={qty} defaultValue="1"/>
+                </InputGroup>
+                </>
+                <Button variant="outline-dark" type="submit">
                     Add to Cart
                 </Button>
             </Card>
